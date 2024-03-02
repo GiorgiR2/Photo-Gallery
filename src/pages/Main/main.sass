@@ -1,0 +1,79 @@
+@import "../../styles/photo-wrapper"
+
+.hidden
+    display: none
+
+main
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: -webkit-fill-available
+
+    .navigation
+        width: 80vw
+        height: 80px
+
+        ul
+            list-style-type: none
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            height: 50%
+            margin-top: 20px
+
+            li a
+                text-decoration: none
+                font-size: 1.2em
+                color: #2c3e50
+
+                &:hover, &:active
+                    color: darken(#2c3e50, 50%)
+    
+    .search
+        width: 80vw
+        height: 50px
+        display: flex
+        border: 2px solid #2c3e50
+        border-radius: 30px
+
+        .icon
+            border-radius: 20px
+            height: 30px
+            margin: 10px 0 0 10px
+        
+        input
+            font-size: 20px
+            height: 45px
+            width: 70vw
+            margin-top: 4px
+            margin-left: 15px
+            padding: 0
+            border: none
+            box-sizing: border-box
+    
+    .title
+        margin-top: 30px
+        height: 100px
+        width: 100%
+        text-align: center
+    
+    .loading
+        margin-top: 50px
+        margin-bottom: 50px
+        height: 80px
+
+    .bottom
+        width: 100%
+        margin-top: 60px
+        height: 50px
+        display: flex
+        justify-content: center
+
+        h1
+            margin-top: 70px
+            margin-left: 10px
+            font-size: 1em
+    
+        h2
+            font-size: 1.2em
