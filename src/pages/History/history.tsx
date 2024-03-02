@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import { clickHandlerFullDisplay } from "../Main/main";
 
 import FullView from "../../components/FullView/fullView";
 
@@ -11,18 +11,7 @@ import loadingGif from "../../assets/loading.gif";
 import "./history.sass";
 import { photoI, searchedPhotoI } from "../../types/types";
 
-const API_KEY = "3CO7LQu_gxBaUrvM4lNBUE5feSlSgHxaogdMAcszN6E";
-
 const HistoryPage = () => {
-    const clickHandlerFullDisplay = (id: string) => {
-        axios(`https://api.unsplash.com/photos/${id}?client_id=${API_KEY}`)
-        .then((res: any) => {
-            let newM: searchedPhotoI = { status: true, src: res.data.urls.regular, id, likes: res.data.likes, downloads: res.data.downloads, views: res.data.views };
-            console.log(newM);
-            setShowFullPicture(newM);
-        })
-        .catch((err: any) => console.error(err));
-    }
     const clickHandlerCategory = (results: any) => {
         setTotalCached(results.length);
         setData(results);
@@ -41,13 +30,7 @@ const HistoryPage = () => {
     const bottomRef = useRef<any>();
 
     useEffect(() => {
-        // console.log("allCached", allQueries);
-        // allQueries.forEach((query: any) => {
-        //     const { queryKey, state } = query;
-        //     console.log("queryKey", queryKey);
-        //     console.log("state", state.data);
-        // })
-
+        // detect when user scrolls to bottom
         const observer = new IntersectionObserver((entries) => {
             const entry = entries[0];
             setBottomVisible(entry.isIntersecting);
@@ -95,7 +78,7 @@ const HistoryPage = () => {
                     }
                     return (
                         <div key={img.id} className="photo">
-                            <img src={img.urls.small} alt="img" onClick={() => clickHandlerFullDisplay(img.id)}/>
+                            <img src={img.urls.small} alt="img" onClick={() => clickHandlerFullDisplay(img.id, setShowFullPicture)}/>
                         </div>
                     );
                 })
