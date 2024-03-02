@@ -2,6 +2,9 @@
 
 ## Overview
 
+Simple Photo Gallery project
+
+
 ## Installation
 
 1. ```git clone https://github.com/GiorgiR2/Photo-Gallery.git```
