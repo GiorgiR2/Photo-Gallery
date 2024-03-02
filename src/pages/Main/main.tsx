@@ -84,7 +84,7 @@ const MainPage = () => {
         queryKey: [searchWord],
         queryFn: () => getPhotos(searchWord, pageLink, queryClient, false, setTotalCached, pageRef),
         refetchOnWindowFocus: false,
-        cacheTime: Infinity,
+        // cacheTime: Infinity,
         keepPreviousData: true,
     });
 
