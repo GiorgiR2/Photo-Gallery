@@ -83,9 +83,6 @@ const MainPage = () => {
     const { data, isLoading } = useQuery({
         queryKey: [searchWord],
         queryFn: () => getPhotos(searchWord, pageLink, queryClient, false, setTotalCached, pageRef),
-        onSuccess: (results: any) => {
-            //pass
-        },
         refetchOnWindowFocus: false,
         cacheTime: Infinity,
         keepPreviousData: true,
