@@ -18,7 +18,7 @@ const getPhotos = async (value: string, pageLink: any, queryClient: any, loadMor
     if (existingData !== undefined && loadMore === false){
         console.log("existingData detected, length:", existingData.length)
         setTotalCachedLen(existingData.length)
-        pageRef.current = (existingData.length/30).toFixed(); // number of pages saves in cache
+        pageRef.current = (existingData.length/30).toFixed(); // number of pages saved in cache
         return existingData;
     }
 
@@ -108,7 +108,6 @@ const MainPage = () => {
             }, 600);
         }
         else if (loadedN >= totalCachedLen){
-            // setLoadedN(ln => ln+2);
             pageRef.current += 1;
             if (searchWord == "popular"){
                 pageLink.current = `https://api.unsplash.com/photos?client_id=${API_KEY}&order_by=popular&per_page=30&page=${pageRef.current}`;
